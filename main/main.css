@@ -1,0 +1,528 @@
+/* PHILRx "main" flow — page-level styles.
+   Sizes are the exact values authored in the Figma frame (node 1593:11798),
+   which uses a cleaner scale than the older Cash-Flow kit (26/18/16/14/12px, 8px radius). */
+@import url('../styles.css');
+/* Poppins is used only for price figures on the pricing screens. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+/* Inter carries the VISA wordmark on the payment screen. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;900&display=swap');
+
+.mf-viewport {
+  min-height: 100vh;
+  background: var(--color-surface-sunken);
+  display: flex;
+  justify-content: center;
+}
+
+/* Every screen in this flow caps at 600px. */
+.mf-screen {
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  color: var(--color-ink-1000);
+}
+
+/* ---------- header ---------- */
+.mf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 17px;
+  border-bottom: 1px solid var(--color-divider-2);
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+.mf-header__logo { height: 20px; width: auto; display: block; }
+.mf-header__tagline {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  color: var(--color-teal);
+  text-align: right;
+}
+
+/* ---------- body ---------- */
+.mf-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.mf-section { padding: 0 16px; display: flex; flex-direction: column; gap: 20px; }
+.mf-section:first-child { padding-top: 24px; }
+
+.mf-h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 36px;
+  color: var(--color-ink-900);
+}
+.mf-lede {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink-900);
+}
+.mf-stack-12 { display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------- inputs ---------- */
+.mf-fields { display: flex; flex-direction: column; gap: 16px; }
+.mf-field { display: flex; flex-direction: column; gap: 8px; }
+.mf-field__label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink-1000);
+}
+.mf-field__input {
+  height: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  color: var(--color-ink-1000);
+  background: var(--color-surface);
+  outline: none;
+}
+.mf-field__input::placeholder { color: var(--color-ink-400); }
+.mf-field__input:focus { border-color: var(--color-brand-blue); }
+
+/* ---------- consent card ---------- */
+.mf-consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.mf-consent__icon { width: 33px; height: 33px; flex-shrink: 0; display: block; }
+.mf-consent__text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-ink-1000);
+}
+.mf-consent__text a { color: inherit; text-decoration: underline; }
+/* page 1 sets its legal links in caps; page 2 does not */
+.mf-consent--caps .mf-consent__text a { text-transform: uppercase; }
+
+.mf-rule { height: 1px; background: var(--color-border); border: 0; margin: 0; width: 100%; }
+
+.mf-login { margin: 0; font-size: 16px; line-height: 24px; color: var(--color-ink-900); }
+.mf-login a { color: var(--color-brand-blue); text-decoration: underline; }
+
+/* ---------- trust badges ---------- */
+.mf-ratings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+.mf-ratings img { display: block; object-fit: contain; }
+
+/* ---------- what's next ---------- */
+.mf-next { display: flex; flex-direction: column; gap: 8px; }
+.mf-next__title { margin: 0; font-weight: 700; font-size: 18px; line-height: 28px; color: var(--color-ink-1000); }
+.mf-next__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.mf-next__item { display: flex; gap: 10px; align-items: center; }
+.mf-next__num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-teal-tint);
+  color: var(--color-teal);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mf-next__text { font-size: 16px; line-height: 24px; letter-spacing: 0.024px; color: var(--color-ink-1000); }
+
+/* ---------- FAQ ---------- */
+.mf-faq {
+  background: var(--color-surface-muted);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mf-faq__q { display: flex; flex-direction: column; gap: 8px; color: var(--color-ink-1000); }
+.mf-faq__title { margin: 0; font-weight: 700; font-size: 18px; line-height: 28px; }
+.mf-faq__body { margin: 0; font-size: 16px; line-height: 24px; letter-spacing: 0.024px; }
+.mf-faq__list { margin: 0; padding-left: 24px; font-size: 16px; line-height: 24px; letter-spacing: 0.024px; }
+
+/* ---------- footer ---------- */
+.mf-footer { border-top: 1px solid #e8e8e8; }
+.mf-footer__block { border-bottom: 1px solid #e8e8e8; padding: 16px 20px; }
+.mf-footer__h { margin: 0; font-weight: 700; font-size: 16px; line-height: 24px; color: #000; }
+.mf-footer__sub { margin: 4px 0 0; font-size: 14px; line-height: 20px; color: var(--color-ink-400); }
+.mf-footer__links { display: flex; flex-direction: column; gap: 10px; padding-top: 7px; }
+.mf-footer__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-brand-blue);
+  text-decoration: none;
+}
+.mf-footer__link span { flex: 1; }
+.mf-footer__link img { width: 15.36px; height: 15.36px; display: block; }
+
+.mf-policies { display: flex; align-items: flex-end; justify-content: space-between; padding: 20px; border-bottom: 1px solid #e8e8e8; }
+.mf-policy { display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; }
+.mf-policy img { width: 20px; height: 20px; display: block; }
+.mf-policy span { font-size: 12px; line-height: 20px; color: var(--color-ink-400); text-decoration: underline; }
+
+.mf-colophon { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px; }
+.mf-colophon img { height: 12.656px; width: auto; display: block; }
+.mf-colophon span { font-size: 12px; line-height: 20px; color: var(--color-ink-400); }
+
+/* ---------- sticky CTA ---------- */
+.mf-cta-bar {
+  position: sticky;
+  bottom: 0;
+  background: var(--color-surface);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 3.282px 0 41.026px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+.mf-cta {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--color-brand-blue);
+  border: 1px solid var(--color-brand-blue);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.mf-cta:hover { background: var(--color-brand-blue-hover); border-color: var(--color-brand-blue-hover); }
+.mf-cta:active { background: var(--color-brand-blue-active); border-color: var(--color-brand-blue-active); }
+.mf-cta:disabled { background: var(--color-brand-blue-disabled); border-color: var(--color-brand-blue-disabled); cursor: not-allowed; }
+
+/* ---------- progress bar (page 2 onward) ---------- */
+.mf-progress { display: flex; align-items: center; gap: 12px; width: 100%; }
+.mf-progress__track {
+  flex: 1;
+  height: 8px;
+  border-radius: 24px;
+  background: var(--color-brand-blue-tint);
+  overflow: hidden;
+}
+.mf-progress__fill { height: 100%; border-radius: 24px; background: var(--color-brand-blue); }
+.mf-progress__pct {
+  width: 40px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-brand-blue);
+}
+
+/* ---------- checkbox option cards ---------- */
+.mf-options { display: flex; flex-direction: column; gap: 16px; }
+.mf-option {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 12px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--color-surface);
+}
+.mf-option--on { background: var(--color-brand-blue-tint-2); border-color: var(--color-brand-blue); }
+.mf-option__box {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.mf-option__box input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.mf-option__mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--color-brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mf-option__mark img { width: 24px; height: 24px; display: block; }
+.mf-option__blank { width: 24px; height: 24px; display: block; }
+.mf-option__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+.mf-option__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.mf-option__label { font-size: 16px; line-height: 24px; color: var(--color-ink-1000); }
+.mf-option__badge {
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-radius: 12px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5px 8px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 20px;
+  color: var(--color-brand-blue);
+  white-space: nowrap;
+}
+.mf-option__desc { font-size: 12px; line-height: 20px; color: var(--color-ink-1000); }
+
+/* Breathing room above the sticky CTA on pages that end in a section.
+   Scoped to :last-child so page 1 (which ends in .mf-faq) is unaffected. */
+.mf-body > .mf-section:last-child { padding-bottom: 60px; }
+
+/* ---------- go back ---------- */
+.mf-goback {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink-700);
+}
+.mf-goback img { width: 20px; height: 20px; display: block; }
+
+/* ---------- price card ---------- */
+.mf-price-card {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mf-price-card__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mf-price-card__term {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #424243;
+  max-width: 120px;
+}
+.mf-price-card__figures { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
+.mf-price-card__amount {
+  font-family: 'Poppins', var(--font-primary);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #424243;
+  white-space: nowrap;
+}
+.mf-price-card__badge {
+  background: #fee000;
+  border-radius: 2px;
+  padding: 4.2px 8.4px;
+  font-family: 'Poppins', var(--font-primary);
+  font-weight: 600;
+  font-size: 9.88px;
+  line-height: 14.112px;
+  color: #424243;
+  white-space: nowrap;
+}
+
+/* ---------- joined field stack (address line 1 + line 2 share a border) ---------- */
+.mf-field-stack { display: flex; flex-direction: column; width: 100%; }
+.mf-field-stack .mf-field__input { border-radius: 0; }
+.mf-field-stack .mf-field__input:first-child { border-radius: 8px 8px 0 0; }
+.mf-field-stack .mf-field__input:last-child { border-radius: 0 0 8px 8px; border-top: 0; }
+.mf-field-stack .mf-field__input:focus { position: relative; z-index: 1; }
+
+/* ---------- side-by-side fields (State / Zip) ---------- */
+.mf-field-row { display: flex; gap: 16px; align-items: flex-start; }
+.mf-field-row > .mf-field { flex: 1; min-width: 0; }
+
+/* ---------- checkbox row (label + optional description) ---------- */
+.mf-check { display: flex; gap: 9px; align-items: flex-start; cursor: pointer; position: relative; }
+.mf-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.mf-check__glyph { width: 26px; height: 26px; flex-shrink: 0; display: block; }
+.mf-check__body { display: flex; flex-direction: column; gap: 4.5px; justify-content: center; min-width: 0; }
+.mf-check__label { font-size: 14px; line-height: 20px; color: var(--color-ink-1000); }
+.mf-check__label--muted { color: var(--color-ink-700); }
+.mf-check__desc { font-size: 14px; line-height: 20px; color: var(--color-ink-700); }
+.mf-check__desc a { color: var(--color-brand-blue); text-decoration: none; }
+
+.mf-divider { height: 1px; width: 100%; background: var(--color-border); border: 0; margin: 0; }
+
+/* ---------- payment method cards ---------- */
+.mf-pay-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.mf-pay-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mf-pay-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0;
+  cursor: pointer;
+  position: relative;
+}
+.mf-pay-head input { position: absolute; opacity: 0; width: 0; height: 0; }
+.mf-pay-head__radio { width: 24px; height: 24px; flex-shrink: 0; display: block; }
+.mf-pay-head__main { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.mf-pay-head__label { font-size: 16px; line-height: 24px; letter-spacing: 0.024px; color: var(--color-ink-900); }
+
+/* card-network lockup: Figma draws this as a text layer plus two circles */
+.mf-brand { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.mf-brand__visa {
+  font-family: 'Inter', var(--font-primary);
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: -0.45px;
+  color: #1a1f71;
+}
+.mf-brand__mc { position: relative; width: 15px; height: 9px; }
+.mf-brand__mc i { position: absolute; top: 0; width: 9px; height: 9px; border-radius: 50%; }
+.mf-brand__mc i:first-child { left: 0; background: #eb001b; }
+.mf-brand__mc i:last-child { left: 5.4px; background: #f79e1b; opacity: 0.9; }
+.mf-brand__applepay { display: flex; align-items: center; gap: 1.6px; }
+.mf-brand__applepay img:first-child { width: 8.1px; height: 10px; display: block; }
+.mf-brand__applepay img:last-child { width: 19.5px; height: 11.7px; display: block; }
+.mf-brand__paypal { height: 13px; width: auto; display: block; }
+
+/* expanded card form */
+.mf-pay-form { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.mf-pay-form__fields { display: flex; flex-direction: column; gap: 12px; }
+.mf-pay-form__card { display: flex; flex-direction: column; gap: 13.24px; }
+.mf-billing { display: flex; flex-direction: column; gap: 3.28px; }
+.mf-billing__title { font-weight: 700; font-size: 14px; line-height: 20px; color: var(--color-ink-900); margin: 0; }
+
+/* ---------- radio choice cards (Yes / No) ---------- */
+.mf-choices { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.mf-choice {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mf-choice--on { background: var(--color-brand-blue-tint-2); border-color: var(--color-brand-blue); }
+.mf-choice input { position: absolute; opacity: 0; width: 0; height: 0; }
+.mf-choice__radio { width: 24px; height: 24px; flex-shrink: 0; display: block; margin: 0 8px; }
+.mf-choice__label { font-size: 16px; line-height: 24px; letter-spacing: 0.024px; color: var(--color-ink-1000); }
+
+/* ---------- divided checklist box ---------- */
+.mf-checklist-group { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.mf-checklist-group__title { margin: 0; font-weight: 700; font-size: 14px; line-height: 20px; color: var(--color-ink-1000); }
+.mf-checklist {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mf-checklist__row { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; position: relative; }
+.mf-checklist__row input { position: absolute; opacity: 0; width: 0; height: 0; }
+.mf-checklist__glyph { width: 24px; height: 24px; flex-shrink: 0; display: block; }
+.mf-checklist__label { flex: 1; font-size: 16px; line-height: 24px; letter-spacing: 0.024px; color: var(--color-ink-1000); }
+.mf-checklist__divider { height: 1px; background: var(--color-border); border: 0; margin: 0; width: 100%; }
+
+/* ---------- multi-line field ---------- */
+.mf-field__textarea {
+  height: 96px;
+  resize: vertical;
+  padding: 8px 16px;
+  align-items: flex-start;
+  font-family: var(--font-primary);
+}
+
+/* ---------- success badge ---------- */
+.mf-success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-teal-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mf-success-icon img { width: 30px; height: 30px; display: block; }
+
+/* ---------- order summary card ---------- */
+.mf-summary {
+  width: 100%;
+  border: 0.821px solid var(--color-border);
+  border-radius: 9.846px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-sizing: border-box;
+}
+.mf-summary__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9.85px 13.13px 10.67px;
+  border-bottom: 0.821px solid #e2e6ea;
+}
+.mf-summary__row:last-child { border-bottom: 0; }
+.mf-summary__key { font-weight: 700; font-size: 12px; line-height: 20px; color: var(--color-ink-400); white-space: nowrap; }
+.mf-summary__val { font-size: 12px; line-height: 20px; color: #111; text-align: right; }
+
+/* ---------- inline text link / link-button ---------- */
+.mf-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-brand-blue);
+  text-decoration: underline;
+  align-self: flex-start;
+}
+.mf-note { margin: 0; font-size: 14px; line-height: 20px; color: var(--color-ink-900); }

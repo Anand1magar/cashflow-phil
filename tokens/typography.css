@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,600&display=swap');
+:root{
+--font-primary:'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+/* Base component scale (from library defaults, e.g. buttons/radios/checkboxes) */
+--text-label:16px;--line-label:24px;
+--text-caption:14px;--line-caption:20px;
+--text-micro:12px;--line-micro:16px;
+/* Mobile flow scale (from Cash-Flow screens, exact px as authored) */
+--text-flow-display:31.6875px;--line-flow-display:43.875px; /* page headline, weight 700 */
+--text-flow-h2:19.5px;--line-flow-h2:29.25px; /* section heading / CTA label, weight 700 */
+--text-flow-body:17.0625px;--line-flow-body:24.375px; /* paragraph copy, weight 400 */
+--text-flow-caption:14.625px;--line-flow-caption:24.375px; /* helper text, progress %, footer links */
+--text-flow-micro:12.1875px; /* legal fine print, avatar caption */
+--weight-regular:400;--weight-bold:700;--weight-black:900;
+}

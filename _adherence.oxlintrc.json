@@ -1,0 +1,315 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "assets/icons/**",
+              "components/core/**",
+              "components/feedback/**",
+              "components/forms/**",
+              "components/navigation/**",
+              "ui_kits/cash-flow/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Lato))/i]",
+        "message": "Font not provided by the design system. Available: Lato."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|checked|onChange|disabled|className|style|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: label, checked, onChange, disabled, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HeaderAndStatusbar'] > JSXAttribute > JSXIdentifier[name!=/^(?:progress|onBack|showBack|className|style|key|ref|className|style|children)$/]",
+        "message": "<HeaderAndStatusbar> doesn't accept that prop. Declared props: progress, onBack, showBack, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InfoMessage'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|children|className|style|key|ref|className|style|children)$/]",
+        "message": "<InfoMessage> doesn't accept that prop. Declared props: icon, children, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|placeholder|state|helper|rightIcon|type|className|style|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, value, placeholder, state, helper, rightIcon, type, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|filled|error|disabled)$/]",
+        "message": "<Input> state must be one of 'default' | 'focused' | 'filled' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhil24PlusSm'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<MyPhil24PlusSm> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhilButtonExtended'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|showLabel|buttonLabel|device|showRightIcon|iconRight|hirerarchy|iconLeft|showLeftIcon|state|key|ref|className|style|children)$/]",
+        "message": "<MyPhilButtonExtended> doesn't accept that prop. Declared props: className, style, showLabel, buttonLabel, device, showRightIcon, iconRight, hirerarchy, iconLeft, showLeftIcon, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhilButtonExtended'] > JSXAttribute[name.name='device'] > Literal[value!=/^(?:desktop|mobile)$/]",
+        "message": "<MyPhilButtonExtended> device must be one of 'desktop' | 'mobile'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhilButtonExtended'] > JSXAttribute[name.name='hirerarchy'] > Literal[value!=/^(?:primary|secondary|tertiary|link)$/]",
+        "message": "<MyPhilButtonExtended> hirerarchy must be one of 'primary' | 'secondary' | 'tertiary' | 'link'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhilButtonExtended'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:hover|default|clicked|disabled)$/]",
+        "message": "<MyPhilButtonExtended> state must be one of 'hover' | 'default' | 'clicked' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MyPhilFooter'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<MyPhilFooter> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtonChecked'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|style2|key|ref|className|style|children)$/]",
+        "message": "<RadioButtonChecked> doesn't accept that prop. Declared props: className, style, style2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtonChecked'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:filled|outlined|round|sharp|two tone)$/]",
+        "message": "<RadioButtonChecked> style2 must be one of 'filled' | 'outlined' | 'round' | 'sharp' | 'two tone'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtons'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|supportingText|device|borderless|selected|text|state|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<RadioButtons> doesn't accept that prop. Declared props: className, style, supportingText, device, borderless, selected, text, state, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtons'] > JSXAttribute[name.name='device'] > Literal[value!=/^(?:mobile|desktop)$/]",
+        "message": "<RadioButtons> device must be one of 'mobile' | 'desktop'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtons'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:enabled|hovered|focused|pressed|disabled)$/]",
+        "message": "<RadioButtons> state must be one of 'enabled' | 'hovered' | 'focused' | 'pressed' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtonUnchecked'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|style2|key|ref|className|style|children)$/]",
+        "message": "<RadioButtonUnchecked> doesn't accept that prop. Declared props: className, style, style2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioButtonUnchecked'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:filled|outlined|round|sharp|two tone)$/]",
+        "message": "<RadioButtonUnchecked> style2 must be one of 'filled' | 'outlined' | 'round' | 'sharp' | 'two tone'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Checkbox": {
+        "replaces": []
+      },
+      "HeaderAndStatusbar": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "InfoMessage": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "MyPhil24PlusSm": {
+        "replaces": []
+      },
+      "MyPhilButtonExtended": {
+        "replaces": []
+      },
+      "MyPhilFooter": {
+        "replaces": []
+      },
+      "RadioButtonChecked": {
+        "replaces": []
+      },
+      "RadioButtons": {
+        "replaces": []
+      },
+      "RadioButtonUnchecked": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--blue-200",
+      "--blue-50",
+      "--blue-500",
+      "--blue-600",
+      "--color-border",
+      "--color-border-strong",
+      "--color-brand-blue",
+      "--color-brand-blue-active",
+      "--color-brand-blue-disabled",
+      "--color-brand-blue-hover",
+      "--color-brand-blue-tint",
+      "--color-brand-blue-tint-2",
+      "--color-divider",
+      "--color-divider-2",
+      "--color-error",
+      "--color-error-strong",
+      "--color-ink-1000",
+      "--color-ink-400",
+      "--color-ink-500",
+      "--color-ink-700",
+      "--color-ink-900",
+      "--color-success",
+      "--color-surface",
+      "--color-surface-muted",
+      "--color-surface-sunken",
+      "--color-teal",
+      "--color-teal-tint",
+      "--font-primary",
+      "--gray-200",
+      "--gray-400",
+      "--gray-800",
+      "--green-600",
+      "--line-caption",
+      "--line-flow-body",
+      "--line-flow-caption",
+      "--line-flow-display",
+      "--line-flow-h2",
+      "--line-label",
+      "--line-micro",
+      "--radius-flow-card",
+      "--radius-flow-modal",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-card",
+      "--shadow-card-soft",
+      "--shadow-message",
+      "--shadow-sheet",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--text-caption",
+      "--text-flow-body",
+      "--text-flow-caption",
+      "--text-flow-display",
+      "--text-flow-h2",
+      "--text-flow-micro",
+      "--text-label",
+      "--text-micro",
+      "--weight-black",
+      "--weight-bold",
+      "--weight-regular",
+      "--zinc-700"
+    ],
+    "tokenKinds": {
+      "--color-brand-blue": "color",
+      "--color-brand-blue-hover": "color",
+      "--color-brand-blue-active": "color",
+      "--color-brand-blue-disabled": "color",
+      "--color-brand-blue-tint": "color",
+      "--color-brand-blue-tint-2": "color",
+      "--color-teal": "color",
+      "--color-teal-tint": "color",
+      "--color-ink-900": "color",
+      "--color-ink-1000": "color",
+      "--color-ink-700": "color",
+      "--color-ink-500": "color",
+      "--color-ink-400": "color",
+      "--color-surface": "color",
+      "--color-surface-sunken": "color",
+      "--color-surface-muted": "color",
+      "--color-border": "color",
+      "--color-border-strong": "color",
+      "--color-divider": "color",
+      "--color-divider-2": "color",
+      "--color-error": "color",
+      "--color-error-strong": "color",
+      "--color-success": "color",
+      "--shadow-card": "shadow",
+      "--shadow-card-soft": "shadow",
+      "--shadow-sheet": "shadow",
+      "--shadow-message": "shadow",
+      "--font-primary": "font",
+      "--text-label": "font",
+      "--line-label": "spacing",
+      "--text-caption": "font",
+      "--line-caption": "spacing",
+      "--text-micro": "font",
+      "--line-micro": "spacing",
+      "--text-flow-display": "font",
+      "--line-flow-display": "spacing",
+      "--text-flow-h2": "font",
+      "--line-flow-h2": "spacing",
+      "--text-flow-body": "font",
+      "--line-flow-body": "spacing",
+      "--text-flow-caption": "font",
+      "--line-flow-caption": "spacing",
+      "--text-flow-micro": "font",
+      "--weight-regular": "font",
+      "--weight-bold": "font",
+      "--weight-black": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius",
+      "--radius-flow-card": "radius",
+      "--radius-flow-modal": "radius",
+      "--blue-200": "color",
+      "--blue-500": "color",
+      "--blue-50": "color",
+      "--blue-600": "color",
+      "--gray-200": "color",
+      "--gray-400": "color",
+      "--gray-800": "color",
+      "--green-600": "color",
+      "--zinc-700": "color"
+    },
+    "fontFamilies": [
+      "Lato"
+    ]
+  }
+}

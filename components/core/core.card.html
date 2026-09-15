@@ -1,0 +1,28 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Button" subtitle="Primary/secondary/tertiary/link, mobile &amp; desktop, all states" -->
+<!DOCTYPE html><html><head><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:24px;background:#fff;font-family:Lato,sans-serif}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { MyPhilButtonExtended } = window.PHILRxDesignSystem_59d472;
+function Row({children}){ return <div style={{display:'flex',gap:16,alignItems:'center',flexWrap:'wrap'}}>{children}</div>; }
+function Demo(){
+  return (<div style={{display:'flex',flexDirection:'column',gap:16}}>
+    <Row>
+      <MyPhilButtonExtended device="mobile" hirerarchy="primary" state="default" buttonLabel="Confirm Order" />
+      <MyPhilButtonExtended device="mobile" hirerarchy="primary" state="hover" buttonLabel="Confirm Order" />
+      <MyPhilButtonExtended device="mobile" hirerarchy="primary" state="clicked" buttonLabel="Confirm Order" />
+      <MyPhilButtonExtended device="mobile" hirerarchy="primary" state="disabled" buttonLabel="Confirm Order" />
+    </Row>
+    <Row>
+      <MyPhilButtonExtended device="mobile" hirerarchy="secondary" state="default" buttonLabel="Secondary" />
+      <MyPhilButtonExtended device="mobile" hirerarchy="tertiary" state="default" buttonLabel="Tertiary" />
+      <MyPhilButtonExtended device="mobile" hirerarchy="link" state="default" buttonLabel="Go Back" />
+    </Row>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

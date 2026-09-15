@@ -1,0 +1,35 @@
+:root{
+/* Brand */
+--color-brand-blue:rgb(35,99,195);
+--color-brand-blue-hover:rgb(79,130,207);
+--color-brand-blue-active:rgb(28,79,156);
+--color-brand-blue-disabled:rgb(167,193,231);
+--color-brand-blue-tint:rgb(219,231,251);
+--color-brand-blue-tint-2:rgb(236,241,249);
+--color-teal:rgb(0,130,126);
+--color-teal-tint:rgb(213,241,240);
+/* Ink / text */
+--color-ink-900:rgb(25,25,25);
+--color-ink-1000:rgb(10,10,10);
+--color-ink-700:rgb(82,82,82);
+--color-ink-500:rgb(117,117,117);
+--color-ink-400:rgb(158,158,158);
+/* Surfaces */
+--color-surface:rgb(255,255,255);
+--color-surface-sunken:rgb(230,230,230);
+--color-surface-muted:rgb(241,241,242);
+/* Borders */
+--color-border:rgb(217,217,217);
+--color-border-strong:rgb(186,186,186);
+--color-divider:rgb(209,214,220);
+--color-divider-2:rgb(215,220,220);
+/* Semantic */
+--color-error:rgb(219,14,14);
+--color-error-strong:rgb(211,23,16);
+--color-success:rgb(0,130,126);
+/* Shadows */
+--shadow-card:0px 4.875px 12.188px 0px rgba(0,0,0,0.15);
+--shadow-card-soft:0px 4.875px 12.188px 0px rgba(0,0,0,0.05);
+--shadow-sheet:4px 0px 100px 0px rgba(0,0,0,0.1);
+--shadow-message:4.875px 4.875px 9.75px 0px rgba(56,56,56,0.1);
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cashflow-phil",
+  "version": "1.0.0",
+  "description": "Extracted from the attached Figma file **\"My-Phil-cash-flow.fig\"**, scoped to the **`/Cash-Flow`** page — 27 frames covering the PHILRx patient onboarding & cash-pay checkout flow on mobile: identity confirmation, password/login setup, notification preferences, a health questionnaire, delivery confirmation, and the SMS message previews that kick the flow off.",
+  "main": "_ds_bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "agentation": "^3.0.2"
+  }
+}
