@@ -10,8 +10,11 @@ import Footer from './Footer.jsx';
  * On mobile the CTA is a sticky bar pinned to the bottom, below the footer.
  * On desktop, desktop.css re-orders it above the footer and makes it inline
  * and right-aligned — see DECISIONS.md.
+ *
+ * ctaInlineOnDesktop: the screen places the button itself somewhere in its
+ * content (>=768px only) and this bar hides. Mobile is unaffected.
  */
-export default function Shell({ children, cta }) {
+export default function Shell({ children, cta, ctaInlineOnDesktop = false }) {
   return (
     <div className="mf-viewport">
       <div className="mf-screen">
@@ -19,7 +22,7 @@ export default function Shell({ children, cta }) {
         <main className="mf-body">{children}</main>
         <Footer />
         {cta && (
-          <div className="mf-cta-bar">
+          <div className={'mf-cta-bar' + (ctaInlineOnDesktop ? ' mf-cta-bar--inline-desktop' : '')}>
             <div className="mf-cta-bar__inner">
               <button className="mf-cta" onClick={cta.onClick} disabled={cta.disabled}>
                 {cta.label}

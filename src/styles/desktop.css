@@ -85,4 +85,13 @@
      the footer takes the slack instead and stays at the bottom on tall screens */
   .mf-body { flex: 0 0 auto; }
   .mf-screen > .mf-footer { margin-top: auto; }
+
+  /* A screen opting into ctaInlineOnDesktop places the button in its own
+     content; the bar at the foot of the page hides. */
+  .mf-cta-bar--inline-desktop { display: none; }
+  .mf-inline-cta {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }

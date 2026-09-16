@@ -340,3 +340,8 @@
 }
 .mf-note { margin: 0; font-size: 14px; line-height: 20px; color: var(--color-ink-900); }
 
+
+/* Inline CTA a screen can place in its own content. Hidden by default —
+   only the desktop breakpoint reveals it (see desktop.css), where the
+   screen's sticky bar is hidden in turn. */
+.mf-inline-cta { display: none; }

@@ -2,7 +2,10 @@ import React from 'react';
 import Shell from '../components/Shell.jsx';
 import ConsentCard from '../components/ConsentCard.jsx';
 
-/* Welcome / confirm identity — Welcome / confirm identity.  Figma node 1593:11798 */
+/* Welcome / confirm identity.  Figma node 1593:11798
+   On desktop the CTA sits directly under the consent card rather than at the
+   foot of the page, so it follows the form it submits. Mobile keeps the
+   sticky bar. See DECISIONS.md. */
 
 export default function WelcomeScreen({ onNext }) {
   const [lastName, setLastName] = React.useState('');
@@ -15,7 +18,7 @@ export default function WelcomeScreen({ onNext }) {
   ];
 
   return (
-    <Shell cta={{ label: 'Next', onClick: onNext }}>
+    <Shell cta={{ label: 'Next', onClick: onNext }} ctaInlineOnDesktop>
       <section className="mf-section">
         <div className="mf-stack-12">
           <h1 className="mf-h1">Welcome to PHILRx!{' '}<br className="mf-br-mobile" />Your prescription starts here!</h1>
@@ -46,6 +49,11 @@ export default function WelcomeScreen({ onNext }) {
         </div>
 
         <ConsentCard caps />
+
+        {/* desktop only — the sticky bar covers mobile */}
+        <div className="mf-inline-cta">
+          <button className="mf-cta" onClick={onNext}>Next</button>
+        </div>
 
         <hr className="mf-rule" />
 
