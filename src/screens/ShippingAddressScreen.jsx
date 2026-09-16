@@ -1,8 +1,13 @@
-/* Page 4 — Shipping address.  Figma node 1576:5758
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+import GoBack from '../components/GoBack.jsx';
+
+/* Shipping address (57%) — Shipping address.  Figma node 1576:5758
    Address line 1 + line 2 are a joined pair sharing one border; State/Zip sit side by side.
    Field values are the sample data authored in the design; exposed as props. */
 
-function Page4({
+export default function ShippingAddressScreen({
   onNext,
   onBack,
   address1 = '123 Main Street',
@@ -11,7 +16,6 @@ function Page4({
   state = 'CA',
   zip = '55320',
 }) {
-  const { Shell, ProgressBar, GoBack } = window.MainFlow;
   const [form, setForm] = React.useState({ address1, address2, city, state, zip });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
@@ -52,5 +56,3 @@ function Page4({
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page4 });

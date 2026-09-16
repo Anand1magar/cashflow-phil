@@ -1,8 +1,12 @@
-/* Page 3 — Best price found.  Figma node 1576:5437
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+import GoBack from '../components/GoBack.jsx';
+
+/* Best price found (43%) — Best price found.  Figma node 1576:5437
    Price figures are "$XX" placeholders in the source design; exposed as props. */
 
-function Page3({ onNext, onBack, term = '90 Day Supply for', amount = '$XX', monthly = '$XX/month' }) {
-  const { Shell, ProgressBar, GoBack } = window.MainFlow;
+export default function BestPriceScreen({ onNext, onBack, term = '90 Day Supply for', amount = '$XX', monthly = '$XX/month' }) {
 
   return (
     <Shell cta={{ label: 'Next', onClick: onNext }}>
@@ -25,5 +29,3 @@ function Page3({ onNext, onBack, term = '90 Day Supply for', amount = '$XX', mon
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page3 });

@@ -1,23 +1,26 @@
-/* Page 7 — Success / delivery.  Figma node 1576:6200
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+
+/* Success / delivery (100%) — Success / delivery.  Figma node 1576:6200
    No sticky CTA and no Go Back: the design's footer holds only browser chrome.
    Forward navigation is the "Set up password" link. */
 
-function Page7({
+export default function DeliveryConfirmationScreen({
   onNext,
   medication = 'RYZUMVI®',
   address = ['123 Main St, Apt 5, San', 'Francisco CA 44512'],
   total = '$20.00',
   deliveryBy = 'Thu, 09/18',
 }) {
-  const { Shell, ProgressBar } = window.MainFlow;
 
   return (
     <Shell>
-      <section className="mf-section" style={{ '--mf-pad-bottom': '100px' }}>
+      <section className="mf-section" style={{ '--mf-pad-bottom': '100px', '--mf-pad-bottom-desktop': '100px' }}>
         <ProgressBar percent={100} />
 
         <div className="mf-success-icon">
-          <img src="assets/success-check.svg" alt="" />
+          <img src="/assets/success-check.svg" alt="" />
         </div>
 
         <div className="mf-stack-12">
@@ -56,5 +59,3 @@ function Page7({
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page7 });

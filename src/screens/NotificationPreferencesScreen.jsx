@@ -1,9 +1,13 @@
-/* Page 2 — Notification preferences.  Figma node 1758:65928
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+import ConsentCard from '../components/ConsentCard.jsx';
+
+/* Notification preferences (29%) — Notification preferences.  Figma node 1758:65928
    That node holds two frames of the SAME screen: Email unchecked (phone field only)
    and Email checked (phone + email fields). Implemented here as one conditional screen. */
 
-function Page2({ onNext }) {
-  const { Shell, ConsentCard, ProgressBar } = window.MainFlow;
+export default function NotificationPreferencesScreen({ onNext }) {
   const [sms, setSms] = React.useState(true);      // Text Messages checked by default
   const [email, setEmail] = React.useState(false); // Email unchecked by default
   const [phoneValue, setPhoneValue] = React.useState('(786) 191 1021');
@@ -14,9 +18,9 @@ function Page2({ onNext }) {
       <span className="mf-option__box">
         <input type="checkbox" checked={on} onChange={onToggle} />
         {on ? (
-          <span className="mf-option__mark"><img src="assets/check-sm.svg" alt="" /></span>
+          <span className="mf-option__mark"><img src="/assets/check-sm.svg" alt="" /></span>
         ) : (
-          <img className="mf-option__blank" src="assets/checkbox-blank.svg" alt="" />
+          <img className="mf-option__blank" src="/assets/checkbox-blank.svg" alt="" />
         )}
       </span>
       <span className="mf-option__body">
@@ -91,5 +95,3 @@ function Page2({ onNext }) {
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page2 });

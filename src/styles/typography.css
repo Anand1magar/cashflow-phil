@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,600&display=swap');
 :root{
 --font-primary:'Lato',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 /* Base component scale (from library defaults, e.g. buttons/radios/checkboxes) */

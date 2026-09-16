@@ -1,4 +1,10 @@
-/* Page 5 — Payment information.  Figma node 1764:91163
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+import GoBack from '../components/GoBack.jsx';
+import CheckRow from '../components/CheckRow.jsx';
+
+/* Payment information (57%) — Payment information.  Figma node 1764:91163
    That node holds three frames of one screen:
      84 — nothing selected, no CTA
      85 — Credit/Debit selected, card form open, "Billing address same as shipping" checked
@@ -6,8 +12,7 @@
    Implemented as one screen driven by state. The CTA only appears once a method
    is chosen, matching frame 84 having no button. */
 
-function Page5({ onNext, onBack, amount = '$XX' }) {
-  const { Shell, ProgressBar, GoBack, CheckRow } = window.MainFlow;
+export default function PaymentScreen({ onNext, onBack, amount = '$XX' }) {
   const [method, setMethod] = React.useState(null);   // frame 84: nothing selected
   const [sameAsShipping, setSameAsShipping] = React.useState(true);
   const [fsa, setFsa] = React.useState(false);
@@ -27,11 +32,11 @@ function Page5({ onNext, onBack, amount = '$XX' }) {
   );
   const ApplePayMark = () => (
     <span className="mf-brand__applepay" aria-label="Apple Pay">
-      <img src="assets/applepay-mark.svg" alt="" />
-      <img src="assets/applepay-text.svg" alt="" />
+      <img src="/assets/applepay-mark.svg" alt="" />
+      <img src="/assets/applepay-text.svg" alt="" />
     </span>
   );
-  const PaypalMark = () => <img className="mf-brand__paypal" src="assets/paypal.png" alt="PayPal" />;
+  const PaypalMark = () => <img className="mf-brand__paypal" src="/assets/paypal.png" alt="PayPal" />;
 
   const Method = ({ id, label, mark, children }) => (
     <div className="mf-pay-card">
@@ -39,7 +44,7 @@ function Page5({ onNext, onBack, amount = '$XX' }) {
         <input type="radio" name="payment" checked={method === id} onChange={() => setMethod(id)} />
         <img
           className="mf-pay-head__radio"
-          src={method === id ? 'assets/radio-checked.svg' : 'assets/radio-unchecked.svg'}
+          src={method === id ? '/assets/radio-checked.svg' : '/assets/radio-unchecked.svg'}
           alt=""
         />
         <span className="mf-pay-head__main">
@@ -140,5 +145,3 @@ function Page5({ onNext, onBack, amount = '$XX' }) {
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page5 });

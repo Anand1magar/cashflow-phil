@@ -1,0 +1,88 @@
+/* PHILRx cash-flow — desktop breakpoint (>=768px), Figma node 1758:72445 */
+
+/* =====================================================================
+   Desktop — Figma node 1758:72445 (1200px frame, 600px content column)
+   The bands (header, FAQ, footer) run full-bleed; every inner column is
+   capped at 600px and centred, exactly as the frame lays them out.
+   ===================================================================== */
+@media (min-width: 768px) {
+  .mf-viewport { background: var(--color-surface); }
+
+  /* the screen itself stops being the 600px card and goes full width */
+  .mf-screen { max-width: none; box-shadow: none; }
+
+  /* header: full-width bar, content aligned to the 600 column.
+     display:block so the inner div can span the bar (mobile makes it a flex row). */
+  .mf-header { padding: 0 16px; }
+  .mf-header__inner {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .mf-header__logo { height: 23px; }
+
+  /* content column: 600px, no side padding (inputs span the full column) */
+  .mf-body > .mf-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .mf-body > .mf-section:first-child { padding-top: 40px; }
+
+  /* headline sits on one line at 600px, so the mobile break is dropped */
+  .mf-br-mobile { display: none; }
+  .mf-lede { font-size: 16px; line-height: 24px; }
+
+  /* trust badges cluster left rather than spreading the full width */
+  .mf-ratings { justify-content: flex-start; gap: 20px; }
+
+  /* FAQ: grey band is full-bleed, its copy stays in the column */
+  .mf-faq { padding: 24px 16px; }
+  .mf-faq__q { max-width: 568px; margin: 0 auto; }
+
+  /* footer: full-bleed, two 300px halves inside the 600 column */
+  .mf-footer__inner {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .mf-footer__block { border-bottom: 0; padding: 16px 20px; }
+  .mf-footer__right { display: flex; flex-direction: column; }
+  .mf-policies { border-bottom: 0; padding: 20px; justify-content: space-between; }
+  .mf-colophon { padding: 20px; justify-content: flex-start; gap: 22px; }
+
+  /* CTA leaves the sticky bar on desktop: it joins the content flow,
+     right-aligned in the column, above the footer. .mf-screen is a flex
+     column, so order moves it without touching the DOM (mobile unchanged). */
+  .mf-screen > .mf-header  { order: 1; }
+  .mf-screen > .mf-body    { order: 2; }
+  .mf-screen > .mf-cta-bar { order: 3; }
+  .mf-screen > .mf-footer  { order: 4; }
+
+  .mf-cta-bar {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 16px 40px;
+  }
+  .mf-cta-bar__inner { max-width: 600px; margin: 0 auto; justify-content: flex-end; }
+  .mf-cta { width: 288px; }
+
+  /* the clearance that kept content off the sticky bar isn't needed now.
+     A screen can still override it:  style={{ '--mf-pad-bottom-desktop': '100px' }} */
+  .mf-body > .mf-section:last-child { padding-bottom: var(--mf-pad-bottom-desktop, 24px); }
+
+  /* stop the body stretching, or it pushes the button away from the content;
+     the footer takes the slack instead and stays at the bottom on tall screens */
+  .mf-body { flex: 0 0 auto; }
+  .mf-screen > .mf-footer { margin-top: auto; }
+}

@@ -1,4 +1,9 @@
-/* Page 6 — Health information.  Figma node 1758:65930
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ProgressBar from '../components/ProgressBar.jsx';
+import ConsentCard from '../components/ConsentCard.jsx';
+
+/* Health information (86%) — Health information.  Figma node 1758:65930
    Three frames of one screen: nothing chosen (CTA disabled), "No" chosen,
    and "Yes" chosen (allergy checklist + medication/history textareas).
    No Go Back on this screen — the design doesn't draw one. */
@@ -13,8 +18,7 @@ const ALLERGENS = [
   { id: 'other', label: 'Other', on: false },
 ];
 
-function Page6({ onNext }) {
-  const { Shell, ProgressBar, ConsentCard } = window.MainFlow;
+export default function HealthInfoScreen({ onNext }) {
   const [answer, setAnswer] = React.useState(null);   // null | 'yes' | 'no'
   const [allergies, setAllergies] = React.useState(
     () => Object.fromEntries(ALLERGENS.map((a) => [a.id, a.on]))
@@ -27,7 +31,7 @@ function Page6({ onNext }) {
       <input type="radio" name="health" checked={answer === id} onChange={() => setAnswer(id)} />
       <img
         className="mf-choice__radio"
-        src={answer === id ? 'assets/radio-checked.svg' : 'assets/radio-unchecked.svg'}
+        src={answer === id ? '/assets/radio-checked.svg' : '/assets/radio-unchecked.svg'}
         alt=""
       />
       <span className="mf-choice__label">{label}</span>
@@ -67,7 +71,7 @@ function Page6({ onNext }) {
                       />
                       <img
                         className="mf-checklist__glyph"
-                        src={allergies[a.id] ? 'assets/checkbox-checked.svg' : 'assets/checkbox-blank.svg'}
+                        src={allergies[a.id] ? '/assets/checkbox-checked.svg' : '/assets/checkbox-blank.svg'}
                         alt=""
                       />
                       <span className="mf-checklist__label">{a.label}</span>
@@ -110,5 +114,3 @@ function Page6({ onNext }) {
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page6 });

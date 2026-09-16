@@ -1,16 +1,24 @@
 {
-  "name": "cashflow-phil",
+  "name": "philrx-cashflow",
   "version": "1.0.0",
-  "description": "Extracted from the attached Figma file **\"My-Phil-cash-flow.fig\"**, scoped to the **`/Cash-Flow`** page — 27 frames covering the PHILRx patient onboarding & cash-pay checkout flow on mobile: identity confirmation, password/login setup, notification preferences, a health questionnaire, delivery confirmation, and the SMS message previews that kick the flow off.",
-  "main": "_ds_bundle.js",
+  "description": "PHILRx cash-pay onboarding flow — reference implementation built from Figma.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
-    "agentation": "^3.0.2"
+    "@vitejs/plugin-react": "^4.7.0",
+    "agentation": "^3.0.2",
+    "vite": "^5.4.21"
+  },
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

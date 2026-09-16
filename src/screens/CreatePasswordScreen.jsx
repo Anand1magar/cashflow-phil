@@ -1,8 +1,12 @@
-/* Page 8 — Set up your password.  Figma node 1576:6345
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ConsentCard from '../components/ConsentCard.jsx';
+import CheckRow from '../components/CheckRow.jsx';
+
+/* Set up your password — Set up your password.  Figma node 1576:6345
    No progress bar on this screen. Consent card matches page 1 (shield icon, caps links). */
 
-function Page8({ onNext }) {
-  const { Shell, ConsentCard, CheckRow } = window.MainFlow;
+export default function CreatePasswordScreen({ onNext }) {
   const [pw, setPw] = React.useState('');
   const [confirm, setConfirm] = React.useState('');
   const [show, setShow] = React.useState(false);
@@ -45,5 +49,3 @@ function Page8({ onNext }) {
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page8 });

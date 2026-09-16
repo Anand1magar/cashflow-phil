@@ -1,7 +1,10 @@
-/* Page 1 — Welcome / confirm identity.  Figma node 1593:11798 */
+import React from 'react';
+import Shell from '../components/Shell.jsx';
+import ConsentCard from '../components/ConsentCard.jsx';
 
-function Page1({ onNext }) {
-  const { Shell, ConsentCard } = window.MainFlow;
+/* Welcome / confirm identity — Welcome / confirm identity.  Figma node 1593:11798 */
+
+export default function WelcomeScreen({ onNext }) {
   const [lastName, setLastName] = React.useState('');
   const [dob, setDob] = React.useState('');
 
@@ -49,9 +52,9 @@ function Page1({ onNext }) {
         <p className="mf-login">Already have a PHILRx account? <a href="#">Log in</a></p>
 
         <div className="mf-ratings">
-          <img src="assets/trustpilot.png" alt="Trustpilot rating" style={{ height: 36 }} />
-          <img src="assets/bbb-accredited.jpg" alt="BBB Accredited Business" style={{ height: 36 }} />
-          <img src="assets/soc2.png" alt="SOC 2 Type 2 certified" style={{ height: 44 }} />
+          <img src="/assets/trustpilot.png" alt="Trustpilot rating" style={{ height: 36 }} />
+          <img src="/assets/bbb-accredited.jpg" alt="BBB Accredited Business" style={{ height: 36 }} />
+          <img src="/assets/soc2.png" alt="SOC 2 Type 2 certified" style={{ height: 44 }} />
         </div>
 
         <div className="mf-next">
@@ -85,5 +88,3 @@ function Page1({ onNext }) {
     </Shell>
   );
 }
-
-window.MainFlow = Object.assign(window.MainFlow || {}, { Page1 });

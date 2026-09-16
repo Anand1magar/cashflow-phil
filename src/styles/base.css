@@ -1,0 +1,197 @@
+/* PHILRx cash-flow — layout primitives: viewport, header, body, inputs, consent, FAQ, footer */
+
+.mf-viewport {
+  min-height: 100vh;
+  background: var(--color-surface-sunken);
+  display: flex;
+  justify-content: center;
+}
+
+/* Every screen in this flow caps at 600px. */
+.mf-screen {
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  color: var(--color-ink-1000);
+}
+
+/* ---------- header ---------- */
+.mf-header {
+  padding: 20px 17px;
+  border-bottom: 1px solid var(--color-divider-2);
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+/* the inner element owns the row layout at every width */
+.mf-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.mf-header__logo { height: 20px; width: auto; display: block; }
+.mf-header__tagline {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  color: var(--color-teal);
+  text-align: right;
+}
+
+/* ---------- body ---------- */
+.mf-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.mf-section { padding: 0 16px; display: flex; flex-direction: column; gap: 20px; }
+.mf-section:first-child { padding-top: 24px; }
+
+.mf-h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 36px;
+  color: var(--color-ink-900);
+}
+.mf-lede {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink-900);
+}
+.mf-stack-12 { display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------- inputs ---------- */
+.mf-fields { display: flex; flex-direction: column; gap: 16px; }
+.mf-field { display: flex; flex-direction: column; gap: 8px; }
+.mf-field__label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink-1000);
+}
+.mf-field__input {
+  height: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  color: var(--color-ink-1000);
+  background: var(--color-surface);
+  outline: none;
+}
+.mf-field__input::placeholder { color: var(--color-ink-400); }
+.mf-field__input:focus { border-color: var(--color-brand-blue); }
+
+/* ---------- consent card ---------- */
+.mf-consent {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.mf-consent__icon { width: 33px; height: 33px; flex-shrink: 0; display: block; }
+.mf-consent__text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-ink-1000);
+}
+.mf-consent__text a { color: inherit; text-decoration: underline; }
+/* page 1 sets its legal links in caps; page 2 does not */
+.mf-consent--caps .mf-consent__text a { text-transform: uppercase; }
+
+.mf-rule { height: 1px; background: var(--color-border); border: 0; margin: 0; width: 100%; }
+
+.mf-login { margin: 0; font-size: 16px; line-height: 24px; color: var(--color-ink-900); }
+.mf-login a { color: var(--color-brand-blue); text-decoration: underline; }
+
+/* ---------- trust badges ---------- */
+.mf-ratings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+.mf-ratings img { display: block; object-fit: contain; }
+
+/* ---------- what's next ---------- */
+.mf-next { display: flex; flex-direction: column; gap: 8px; }
+.mf-next__title { margin: 0; font-weight: 700; font-size: 18px; line-height: 28px; color: var(--color-ink-1000); }
+.mf-next__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.mf-next__item { display: flex; gap: 10px; align-items: center; }
+.mf-next__num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-teal-tint);
+  color: var(--color-teal);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mf-next__text { font-size: 16px; line-height: 24px; letter-spacing: 0.024px; color: var(--color-ink-1000); }
+
+/* ---------- FAQ ---------- */
+.mf-faq {
+  background: var(--color-surface-muted);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mf-faq__q { display: flex; flex-direction: column; gap: 8px; color: var(--color-ink-1000); }
+.mf-faq__title { margin: 0; font-weight: 700; font-size: 18px; line-height: 28px; }
+.mf-faq__body { margin: 0; font-size: 16px; line-height: 24px; letter-spacing: 0.024px; }
+.mf-faq__list { margin: 0; padding-left: 24px; font-size: 16px; line-height: 24px; letter-spacing: 0.024px; }
+
+/* ---------- footer ---------- */
+.mf-footer { border-top: 1px solid #e8e8e8; }
+.mf-footer__block { border-bottom: 1px solid #e8e8e8; padding: 16px 20px; }
+.mf-footer__h { margin: 0; font-weight: 700; font-size: 16px; line-height: 24px; color: #000; }
+.mf-footer__sub { margin: 4px 0 0; font-size: 14px; line-height: 20px; color: var(--color-ink-400); }
+.mf-footer__links { display: flex; flex-direction: column; gap: 10px; padding-top: 7px; }
+.mf-footer__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-brand-blue);
+  text-decoration: none;
+}
+.mf-footer__link span { flex: 1; }
+.mf-footer__link img { width: 15.36px; height: 15.36px; display: block; }
+
+.mf-policies { display: flex; align-items: flex-end; justify-content: space-between; padding: 20px; border-bottom: 1px solid #e8e8e8; }
+.mf-policy { display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; }
+.mf-policy img { width: 20px; height: 20px; display: block; }
+.mf-policy span { font-size: 12px; line-height: 20px; color: var(--color-ink-400); text-decoration: underline; }
+
+.mf-colophon { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px; }
+.mf-colophon img { height: 12.656px; width: auto; display: block; }
+.mf-colophon span { font-size: 12px; line-height: 20px; color: var(--color-ink-400); }
+

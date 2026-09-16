@@ -1,0 +1,14 @@
+/* Import order matters: tokens define the variables the rest consume,
+   and desktop.css must come last so its overrides win. */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;900&display=swap');
+
+@import './colors.css';
+@import './typography.css';
+@import './spacing.css';
+@import './fig-tokens.css';
+
+@import './base.css';
+@import './components.css';
+@import './desktop.css';
