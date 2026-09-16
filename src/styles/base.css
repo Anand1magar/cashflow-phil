@@ -1,5 +1,13 @@
 /* PHILRx cash-flow — layout primitives: viewport, header, body, inputs, consent, FAQ, footer */
 
+/* The browser's default 8px body margin would inset the full-bleed header,
+   FAQ band and footer, so they'd stop short of the viewport edges. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .mf-viewport {
   min-height: 100vh;
   background: var(--color-surface-sunken);
