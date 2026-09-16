@@ -4,15 +4,22 @@
   "buildCommand": null,
   "installCommand": null,
   "outputDirectory": ".",
-  "rewrites": [
-    { "source": "/", "destination": "/main/index.html" }
-  ],
   "headers": [
     {
       "source": "/(.*)\\.jsx",
       "headers": [
-        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "application/javascript; charset=utf-8"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/main/",
+      "permanent": false
     }
   ]
 }

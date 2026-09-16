@@ -9,7 +9,7 @@ function Page8({ onNext }) {
 
   return (
     <Shell cta={{ label: 'Save', onClick: onNext }}>
-      <section className="mf-section">
+      <section className="mf-section" style={{ '--mf-pad-bottom': '100px' }}>
         <div className="mf-stack-12">
           <h1 className="mf-h1">Set up your password!</h1>
           <p className="mf-lede">Select a secure password to protect your PHILRx account.</p>

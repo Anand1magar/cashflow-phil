@@ -53,7 +53,7 @@ function Page5({ onNext, onBack, amount = '$XX' }) {
 
   return (
     <Shell cta={method ? { label: `Confirm ${amount}`, onClick: onNext } : null}>
-      <section className="mf-section">
+      <section className="mf-section" style={{ '--mf-pad-bottom': '100px' }}>
         <ProgressBar percent={57} />
         <GoBack onBack={onBack} />
 

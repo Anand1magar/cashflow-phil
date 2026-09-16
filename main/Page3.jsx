@@ -6,7 +6,7 @@ function Page3({ onNext, onBack, term = '90 Day Supply for', amount = '$XX', mon
 
   return (
     <Shell cta={{ label: 'Next', onClick: onNext }}>
-      <section className="mf-section">
+      <section className="mf-section" style={{ '--mf-pad-bottom': '200px' }}>
         <ProgressBar percent={43} />
         <GoBack onBack={onBack} />
 

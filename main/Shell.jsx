@@ -4,8 +4,10 @@
 function Header() {
   return (
     <header className="mf-header">
-      <img className="mf-header__logo" src="../assets/logo/philrx-logo-color.png" alt="PHILRx" />
-      <span className="mf-header__tagline">Rx at your fingertips</span>
+      <div className="mf-header__inner">
+        <img className="mf-header__logo" src="../assets/logo/philrx-logo-color.png" alt="PHILRx" />
+        <span className="mf-header__tagline">Rx at your fingertips</span>
+      </div>
     </header>
   );
 }
@@ -18,6 +20,7 @@ function Footer() {
   ];
   return (
     <footer className="mf-footer">
+      <div className="mf-footer__inner">
       <div className="mf-footer__block">
         <h2 className="mf-footer__h">Questions?</h2>
         <p className="mf-footer__sub">We're here to help.</p>
@@ -26,6 +29,7 @@ function Footer() {
           <a className="mf-footer__link" href="#"><span>Contact us</span><img src="assets/chevron-contact.svg" alt="" /></a>
         </div>
       </div>
+      <div className="mf-footer__right">
       <div className="mf-policies">
         {policies.map((p) => (
           <a className="mf-policy" href="#" key={p.label}>
@@ -38,6 +42,8 @@ function Footer() {
         <img src="../assets/logo/philrx-logo-color.png" alt="PHILRx" />
         <span>© PHILRx, Inc. All rights reserved.</span>
       </div>
+      </div>
+      </div>
     </footer>
   );
 }
@@ -45,7 +51,7 @@ function Footer() {
 /* Checkbox row with optional description. Shared: recurs across the flow. */
 function CheckRow({ checked, onToggle, label, description, muted }) {
   return (
-    <label className="mf-check">
+    <label className={'mf-check' + (description ? ' mf-check--top' : '')}>
       <input type="checkbox" checked={checked} onChange={onToggle} />
       <img
         className="mf-check__glyph"
@@ -111,9 +117,11 @@ function Shell({ children, cta }) {
         <Footer />
         {cta && (
           <div className="mf-cta-bar">
-            <button className="mf-cta" onClick={cta.onClick} disabled={cta.disabled}>
-              {cta.label}
-            </button>
+            <div className="mf-cta-bar__inner">
+              <button className="mf-cta" onClick={cta.onClick} disabled={cta.disabled}>
+                {cta.label}
+              </button>
+            </div>
           </div>
         )}
       </div>

@@ -13,7 +13,7 @@ function Page7({
 
   return (
     <Shell>
-      <section className="mf-section">
+      <section className="mf-section" style={{ '--mf-pad-bottom': '100px' }}>
         <ProgressBar percent={100} />
 
         <div className="mf-success-icon">

@@ -17,7 +17,7 @@ function Page4({
 
   return (
     <Shell cta={{ label: 'Next', onClick: onNext }}>
-      <section className="mf-section">
+      <section className="mf-section" style={{ '--mf-pad-bottom': '100px' }}>
         <ProgressBar percent={57} />
         <GoBack onBack={onBack} />
 

@@ -15,7 +15,7 @@ function Page1({ onNext }) {
     <Shell cta={{ label: 'Next', onClick: onNext }}>
       <section className="mf-section">
         <div className="mf-stack-12">
-          <h1 className="mf-h1">Welcome to PHILRx!<br />Your prescription starts here!</h1>
+          <h1 className="mf-h1">Welcome to PHILRx!{' '}<br className="mf-br-mobile" />Your prescription starts here!</h1>
           <p className="mf-lede">
             Dr. Cristina Truman sent your RYZUMVI® prescription. Confirm your identity to continue.
           </p>

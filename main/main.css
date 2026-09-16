@@ -28,16 +28,19 @@
 
 /* ---------- header ---------- */
 .mf-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   padding: 20px 17px;
   border-bottom: 1px solid var(--color-divider-2);
   background: var(--color-surface);
   position: sticky;
   top: 0;
   z-index: 3;
+}
+/* the inner element owns the row layout at every width */
+.mf-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 .mf-header__logo { height: 20px; width: auto; display: block; }
 .mf-header__tagline {
@@ -106,7 +109,7 @@
 .mf-consent {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   padding: 16px;
   border: 1px solid var(--color-border);
   border-radius: 8px;
@@ -210,6 +213,14 @@
   box-shadow: 3.282px 0 41.026px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
+/* The inner wrapper spans the bar at all widths; desktop only adds the 600px cap.
+   Without this the wrapper is a shrink-to-fit flex item and the button collapses. */
+.mf-cta-bar__inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .mf-cta {
   width: 100%;
   padding: 12px 16px;
@@ -301,8 +312,9 @@
 .mf-option__desc { font-size: 12px; line-height: 20px; color: var(--color-ink-1000); }
 
 /* Breathing room above the sticky CTA on pages that end in a section.
-   Scoped to :last-child so page 1 (which ends in .mf-faq) is unaffected. */
-.mf-body > .mf-section:last-child { padding-bottom: 60px; }
+   Scoped to :last-child so page 1 (which ends in .mf-faq) is unaffected.
+   A screen can override just this value:  style={{ '--mf-pad-bottom': '100px' }} */
+.mf-body > .mf-section:last-child { padding-bottom: var(--mf-pad-bottom, 60px); }
 
 /* ---------- go back ---------- */
 .mf-goback {
@@ -370,7 +382,10 @@
 .mf-field-row > .mf-field { flex: 1; min-width: 0; }
 
 /* ---------- checkbox row (label + optional description) ---------- */
-.mf-check { display: flex; gap: 9px; align-items: flex-start; cursor: pointer; position: relative; }
+/* Single-line rows centre the glyph against the label; rows that carry a
+   description stay top-aligned, matching how Figma draws each case. */
+.mf-check { display: flex; gap: 9px; align-items: center; cursor: pointer; position: relative; }
+.mf-check--top { align-items: flex-start; }
 .mf-check input { position: absolute; opacity: 0; width: 0; height: 0; }
 .mf-check__glyph { width: 26px; height: 26px; flex-shrink: 0; display: block; }
 .mf-check__body { display: flex; flex-direction: column; gap: 4.5px; justify-content: center; min-width: 0; }
@@ -505,7 +520,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 9.85px 13.13px 10.67px;
+  padding: 16px 14px;
   border-bottom: 0.821px solid #e2e6ea;
 }
 .mf-summary__row:last-child { border-bottom: 0; }
@@ -526,3 +541,67 @@
   align-self: flex-start;
 }
 .mf-note { margin: 0; font-size: 14px; line-height: 20px; color: var(--color-ink-900); }
+
+/* =====================================================================
+   Desktop — Figma node 1758:72445 (1200px frame, 600px content column)
+   The bands (header, FAQ, footer) run full-bleed; every inner column is
+   capped at 600px and centred, exactly as the frame lays them out.
+   ===================================================================== */
+@media (min-width: 768px) {
+  .mf-viewport { background: var(--color-surface); }
+
+  /* the screen itself stops being the 600px card and goes full width */
+  .mf-screen { max-width: none; box-shadow: none; }
+
+  /* header: full-width bar, content aligned to the 600 column.
+     display:block so the inner div can span the bar (mobile makes it a flex row). */
+  .mf-header { padding: 0 16px; }
+  .mf-header__inner {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .mf-header__logo { height: 23px; }
+
+  /* content column: 600px, no side padding (inputs span the full column) */
+  .mf-body > .mf-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .mf-body > .mf-section:first-child { padding-top: 40px; }
+
+  /* headline sits on one line at 600px, so the mobile break is dropped */
+  .mf-br-mobile { display: none; }
+  .mf-lede { font-size: 16px; line-height: 24px; }
+
+  /* trust badges cluster left rather than spreading the full width */
+  .mf-ratings { justify-content: flex-start; gap: 20px; }
+
+  /* FAQ: grey band is full-bleed, its copy stays in the column */
+  .mf-faq { padding: 24px 16px; }
+  .mf-faq__q { max-width: 568px; margin: 0 auto; }
+
+  /* footer: full-bleed, two 300px halves inside the 600 column */
+  .mf-footer__inner {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .mf-footer__block { border-bottom: 0; padding: 16px 20px; }
+  .mf-footer__right { display: flex; flex-direction: column; }
+  .mf-policies { border-bottom: 0; padding: 20px; justify-content: space-between; }
+  .mf-colophon { padding: 20px; justify-content: flex-start; gap: 22px; }
+
+  /* sticky CTA keeps the same column width */
+  .mf-cta-bar__inner { max-width: 600px; margin: 0 auto; }
+}
