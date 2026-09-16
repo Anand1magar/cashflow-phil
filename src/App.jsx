@@ -22,9 +22,13 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
+  /* Forward past the last screen wraps to the first, so the prototype can be
+     walked end to end repeatedly during review. Back from the first is a no-op.
+     A real implementation would submit here instead — see DECISIONS.md. */
   const go = (next) => {
-    if (next < 0 || next >= FLOW.length) return;
-    window.location.hash = `#/${FLOW[next].slug}`;
+    if (next < 0) return;
+    const target = next >= FLOW.length ? 0 : next;
+    window.location.hash = `#/${FLOW[target].slug}`;
   };
 
   const { Component } = FLOW[i];

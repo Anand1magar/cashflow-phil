@@ -95,7 +95,11 @@ no i18n. Hash routing rather than a router. Form state is local to each screen
 and resets on navigation — there is no shared flow state, so nothing entered on
 one screen reaches another.
 
-The CTA on every screen simply advances; none of them submit anything.
+The CTA on every screen simply advances; none of them submit anything. The
+final screen's **Save** wraps back to the welcome screen so the flow can be
+walked repeatedly during review — that is a prototype affordance, not
+intended behaviour. In the real product it submits and goes wherever the
+account flow continues.
 
 ## 7. Scope
 
